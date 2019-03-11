@@ -26,3 +26,11 @@ mkdir dotnet-hello-world
 cd dotnet-hello-world
 dotnet new console
 
+echo "====================="
+echo "Next steps:"
+echo "cd /opt/blackduck/detect/testprojects/blackduck-common/"
+echo "../../detect.sh --blackduck.url=https://yourblackduckserver.yourdomain --blackduck.username=yourusername --blackduck.password=yourpassword --blackduck.trust.cert=true"
+echo "cd ../common-maven-parent"
+echo "<re-run the detect.sh command>"
+echo "cd ../dotnet-hello-world"
+echo "<re-run the detect.sh command>"

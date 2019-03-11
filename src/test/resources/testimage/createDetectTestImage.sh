@@ -38,13 +38,8 @@ docker build -t ${imageorg}/${imagename}:${imageversion} .
 rm -rf blackduck-common
 rm -rf common-maven-parent
 
+echo "====================="
 echo "Next steps:"
 echo "docker run -it -d --name ${containername} ${imageorg}/${imagename}:${imageversion}; docker attach ${containername}"
 echo "cd /opt/blackduck/detect/"
 echo "./setup.sh"
-echo "cd testprojects/blackduck-common/"
-echo "../../detect.sh --blackduck.url=https://yourblackduckserver.yourdomain --blackduck.username=yourusername --blackduck.password=yourpassword --blackduck.trust.cert=true"
-echo "cd ../common-maven-parent"
-echo "<re-run the detect.sh command>"
-echo "cd ../dotnet-hello-world"
-echo "<re-run the detect.sh command>"
