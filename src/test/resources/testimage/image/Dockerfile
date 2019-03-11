@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 RUN apt-get update -y && \
-                apt install -y openjdk-8-jdk vim curl dnsutils maven && \
+                apt install -y openjdk-8-jdk vim curl dnsutils maven wget apt-utils  && \
                 apt-get -y clean
 RUN mkdir -p /opt/blackduck/detect/testprojects
 COPY setup.sh /opt/blackduck/detect
