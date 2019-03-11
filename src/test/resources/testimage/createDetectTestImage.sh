@@ -9,6 +9,7 @@ imageorg=blackducksoftware
 imagename=detecttest
 imageversion=1.0
 containername=${imagename}
+gitbranch=sb_testContainer # normally master
 
 # ignore errors on these:
 docker stop ${containername} || true
@@ -18,8 +19,8 @@ docker rmi ${imageorg}/${imagename}:${imageversion} || true
 rm -rf image
 mkdir image
 cd image
-curl -O https://raw.githubusercontent.com/blackducksoftware/synopsys-detect/sb_testContainer/src/test/resources/testimage/image/Dockerfile
-curl -O https://raw.githubusercontent.com/blackducksoftware/synopsys-detect/sb_testContainer/src/test/resources/testimage/image/setup.sh
+curl -O https://raw.githubusercontent.com/blackducksoftware/synopsys-detect/${gitbranch}/src/test/resources/testimage/image/Dockerfile
+curl -O https://raw.githubusercontent.com/blackducksoftware/synopsys-detect/${gitbranch}/src/test/resources/testimage/image/setup.sh
 chmod a+x setup.sh
 
 # Get blackduck-common
