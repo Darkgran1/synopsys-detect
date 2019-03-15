@@ -32,6 +32,20 @@ public class ProductDeciderTest {
         Assert.assertTrue(productDecision.getPolarisDecision().shouldRun());
     }
 
+
+    @Test()
+    public void shouldRunPolarisWhenExcluded() throws DetectUserFriendlyException {
+        File userHome = Mockito.mock(File.class);
+        DetectConfiguration detectConfiguration = polarisConfiguration("POLARIS_ACCESS_TOKEN", "access token text", "POLARIS_URL", "http://polaris.com");
+
+        ProductDecider productDecider = new ProductDecider();
+        DetectToolFilter detectToolFilter = Mockito.mock(DetectToolFilter.class);
+        Mockito.when(detectToolFilter.shouldInclude(DetectTool.POLARIS)).thenReturn(Boolean.FALSE);
+        ProductDecision productDecision = productDecider.decide(detectConfiguration, userHome, detectToolFilter);
+
+        Assert.assertFalse(productDecision.getPolarisDecision().shouldRun());
+    }
+
     @Test()
     public void shouldRunBlackDuckOffline() throws DetectUserFriendlyException {
         File userHome = Mockito.mock(File.class);
